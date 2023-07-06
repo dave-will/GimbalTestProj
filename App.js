@@ -26,14 +26,14 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-import { UrbanAirship } from 'urbanairship-react-native';
+import Airship from '@ua/react-native-airship';
 import { GimbalAirshipAdapter } from 'rtn-gimbal-airship-adapter';
 
 const GIMBAL_API_KEY =
   Platform.OS === 'ios' ? 'A' : 'B';
 
 try {
-  UrbanAirship.takeOff({
+  Airship.takeOff({
     default: {
       appSecret: 'Config.AIRSHIP_APP_SECRET',
       appKey: 'Config.AIRSHIP_APP_KEY',
