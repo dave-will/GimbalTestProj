@@ -25,5 +25,5 @@ A test repo for demonstraiting the above issue. Was created using the following:
 1. `npx react-native@0.69.11 init GimbalTestProj --version 0.69.11`
 2. `cd GimbalTestProj`
 3. `npm install rtn-gimbal-airship-adapter@1.1.0 "@ua/react-native-airship"@15.2.1`
-4. Updates to [App.tsx](App.tsx) to import/mount the above dependencies
+4. Updates to [App.js](App.js) to import/mount the above dependencies
   - Lines 29-47
