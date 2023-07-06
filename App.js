@@ -3,10 +3,11 @@
  * https://github.com/facebook/react-native
  *
  * @format
+ * @flow strict-local
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
+import type {Node} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -15,7 +16,6 @@ import {
   Text,
   useColorScheme,
   View,
-  Platform,
 } from 'react-native';
 
 import {
@@ -46,11 +46,7 @@ try {
   console.log({ e });
 }
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
+const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -74,9 +70,9 @@ function Section({children, title}: SectionProps): JSX.Element {
       </Text>
     </View>
   );
-}
+};
 
-function App(): JSX.Element {
+const App: () => Node = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -85,10 +81,7 @@ function App(): JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
+      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
@@ -98,7 +91,7 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
+            Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then come back to see your edits.
           </Section>
           <Section title="See Your Changes">
@@ -115,7 +108,7 @@ function App(): JSX.Element {
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {
